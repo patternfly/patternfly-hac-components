@@ -34,6 +34,7 @@
     "@patternfly/react-core": "^6.0.0",
     "@patternfly/react-icons": "^6.0.0",
     "@patternfly/react-table": "^6.0.0",
+    "@emotion/react": "^11.14.0",
     "react-jss": "^10.10.0",
     "clsx": "^2.1.1"
   },

@@ -9,14 +9,14 @@ import {
   Stack,
   StackItem, 
 } from '@patternfly/react-core';
-import { createUseStyles } from 'react-jss'
+import { css } from '@emotion/react';
 import React from 'react';
 
-const useStyles = createUseStyles({
-  errorDescription: {
-    margin: 'auto'
-  }
-})
+const styles = {
+  errorDescription: css`
+    margin: auto;
+  `,
+};
 
 /** extends EmptyStateProps */
 export interface ErrorStateProps extends Omit<EmptyStateProps, 'children' | 'titleText' | 'status'> {
@@ -44,24 +44,22 @@ const ErrorState: React.FunctionComponent<ErrorStateProps> = ({
   status = EmptyStateStatus.danger,
   variant = EmptyStateVariant.lg,
   ...props 
-}: ErrorStateProps) => { 
-  const classes = useStyles();
-  return (
-    <EmptyState 
-      headingLevel={headingLevel} 
-      {...(status !== 'none' && { status } )}
-      variant={variant} 
-      titleText={titleText} 
-      data-ouia-component-id={ouiaId} 
-      {...props}
-    >
-      <EmptyStateBody data-ouia-component-id={`${ouiaId}-body`}>
-        <Stack>
-          {bodyText ? <StackItem className={classes.errorDescription}>{bodyText}</StackItem> : defaultBodyText}
-        </Stack>
-      </EmptyStateBody>
-      <EmptyStateFooter data-ouia-component-id={`${ouiaId}-footer`}>
-        { customFooter ||
+}: ErrorStateProps) => (
+  <EmptyState 
+    headingLevel={headingLevel} 
+    {...(status !== 'none' && { status } )}
+    variant={variant} 
+    titleText={titleText} 
+    data-ouia-component-id={ouiaId} 
+    {...props}
+  >
+    <EmptyStateBody data-ouia-component-id={`${ouiaId}-body`}>
+      <Stack>
+        {bodyText ? <StackItem css={styles.errorDescription}>{bodyText}</StackItem> : defaultBodyText}
+      </Stack>
+    </EmptyStateBody>
+    <EmptyStateFooter data-ouia-component-id={`${ouiaId}-footer`}>
+      { customFooter ||
           (document.referrer ? (
             <Button variant="primary" onClick={() => history.back()} ouiaId={`${ouiaId}-back-button`}>
               Return to last page
@@ -71,9 +69,9 @@ const ErrorState: React.FunctionComponent<ErrorStateProps> = ({
               Go to home page
             </Button>
           ))}
-      </EmptyStateFooter>
-    </EmptyState>
-  );
-}
+    </EmptyStateFooter>
+  </EmptyState>
+)
 
 export default ErrorState;
+

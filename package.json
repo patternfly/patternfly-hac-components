@@ -38,6 +38,7 @@
     "@babel/preset-flow": "^7.25.9",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.26.0",
+    "@emotion/babel-plugin": "^11.13.5",
     "@octokit/rest": "^21.1.0",
     "@swc/core": "1.7.42",
     "@testing-library/dom": "^10.3.2",
@@ -83,6 +84,7 @@
     "whatwg-fetch": "^3.6.20"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
     "@patternfly/react-tokens": "^6.0.0",
     "sharp": "^0.33.5"
   }

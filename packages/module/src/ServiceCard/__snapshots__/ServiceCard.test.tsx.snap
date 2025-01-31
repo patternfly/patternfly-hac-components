@@ -22,7 +22,7 @@ exports[`ServiceCard component should render ServiceCard component 1`] = `
               class="pf-v6-l-flex pf-m-row pf-m-align-items-center"
             >
               <div
-                class="image-0-2-2"
+                class="css-1g8hpot"
               >
                 /
               </div>
@@ -78,7 +78,7 @@ exports[`ServiceCard component should render ServiceCard component 1`] = `
             class="pf-v6-l-flex pf-m-row pf-m-align-items-center"
           >
             <div
-              class="image-0-2-2"
+              class="css-1g8hpot"
             >
               /
             </div>

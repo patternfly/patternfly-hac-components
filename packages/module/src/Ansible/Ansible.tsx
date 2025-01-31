@@ -1,6 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
-import { createUseStyles } from 'react-jss';
+import { css } from '@emotion/react';
 
 export interface AnsibleProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {
   /** Supported/unsupported variant flag */
@@ -28,37 +27,35 @@ const RHAAPTechnologyIcon =
   <path className="uuid-a19226e8-b71f-481c-815f-1ed60f4363a6" d="m28,2.25c4.27338,0,7.75,3.47664,7.75,7.75v18c0,4.27336-3.47662,7.75-7.75,7.75H10c-4.27338,0-7.75-3.47664-7.75-7.75V10c0-4.27336,3.47662-7.75,7.75-7.75h18m0-1.25H10C5.02942,1,1,5.02944,1,10v18c0,4.97057,4.02942,9,9,9h18c4.97058,0,9-4.02943,9-9V10c0-4.97056-4.02942-9-9-9h0Z"/>
   <path className="uuid-2a01d04c-89d4-48ba-a2d8-51034215da9b" d="m15,23.625c-.08594,0-.17383-.01758-.25684-.05566-.31445-.1416-.45508-.51172-.3125-.82617l2.02051-4.48145c.00293-.00586.00586-.01172.00781-.01758l1.97168-4.36914c.20117-.44922.9375-.44922,1.13867,0l4,8.86816c.11814.25977.04395.56641-.17871.74512-.22266.17773-.53613.18262-.7666.01172l-5.34961-4.02148-1.70508,3.77832c-.10352.23145-.33105.36816-.56934.36816Zm2.80078-5.31445l3.62891,2.72754-2.42969-5.38574-1.19922,2.6582Z"/>
   <path className="uuid-6998fa22-ec9a-4e2f-9d0d-f4bc3361e80e" d="m19,30.125c-6.13477,0-11.125-4.99023-11.125-11.125s4.99023-11.125,11.125-11.125,11.125,4.99023,11.125,11.125-4.99023,11.125-11.125,11.125Zm0-21c-5.44531,0-9.875,4.42969-9.875,9.875s4.42969,9.875,9.875,9.875,9.875-4.42969,9.875-9.875-4.42969-9.875-9.875-9.875Z"/>
-</svg>
+</svg>;
 
-const useStyles = createUseStyles({
-  ansible: {
-    '& svg': {
-      height: 'var(--pf-t--global--font--size--xl)',
-      position: 'relative',
-      top: '0.25rem'
+const styles = {
+  ansible: css`
+    & svg {
+      height: var(--pf-t--global--font--size--xl);
+      position: relative;
+      top: 0.25rem;
     }
-  },
-  ansibleSupported: {
-    '& .st0': {
-      fill: 'var(--pf-t-global--icon--color--regular)',
+  `,
+  ansibleSupported: css`
+    & .st0 {
+      fill: var(--pf-t-global--icon--color--regular);
     }
-  },
-  ansibleUnsupported: {
-    '& .st0, .st1, .st2': {
-      fill: 'var(--pf-t--global--icon--color--disabled)',
-      cursor: 'not-allowed',
+  `,
+  ansibleUnsupported: css`
+    & .st0, & .st1, & .st2 {
+      fill: var(--pf-t--global--icon--color--disabled);
+      cursor: not-allowed;
     }
-  }
-})
+  `
+};
 
 const Ansible: React.FunctionComponent<AnsibleProps> = ({ isSupported = true, isRHAAP, className, ouiaId = "Ansible-icon", ...props }: AnsibleProps) => {
-  const classes = useStyles();
-  const ansibleLogoClass = clsx(
-    classes.ansible,
-    { [classes.ansibleSupported]: isSupported },
-    { [classes.ansibleUnsupported]: !isSupported },
-    className
-  );
+  const ansibleLogoClass = css`
+    ${styles.ansible};
+    ${isSupported ? styles.ansibleSupported : styles.ansibleUnsupported};
+    ${className || ''};
+  `;
 
   const unsupportedSlash = (
     <React.Fragment>
@@ -98,13 +95,13 @@ const Ansible: React.FunctionComponent<AnsibleProps> = ({ isSupported = true, is
           {RHAAPTechnologyIcon}
         </i>
       ) : (
-        <i className={ansibleLogoClass} title={isSupported ? "Ansible supported" : "Ansible is not supported" } data-ouia-component-id={ouiaId} {...props}>
+        <i css={ansibleLogoClass} title={isSupported ? "Ansible supported" : "Ansible is not supported" } data-ouia-component-id={ouiaId} {...props}>
           <svg
             version="1.1"
             x="0px"
             y="0px"
             viewBox="0 0 2032 2027.2"
-            style={{ enableBackground: 'new 0 0 2032 2027.2' } as React.CSSProperties}
+            css={css`enableBackground: new 0 0 2032 2027.2`}
           >
             <path
               className="st0"
@@ -116,7 +113,7 @@ const Ansible: React.FunctionComponent<AnsibleProps> = ({ isSupported = true, is
             {isSupported ? null : unsupportedSlash}
           </svg>
         </i>
-      ) }
+      )}
     </React.Fragment>
   );
 };

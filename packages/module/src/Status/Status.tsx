@@ -1,6 +1,6 @@
+import { css } from '@emotion/react';
 import * as React from 'react';
 import { Button, ButtonVariant, Flex, FlexItem, Icon, Popover, PopoverPosition, PopoverProps, Content, ContentVariants, } from '@patternfly/react-core';
-import { createUseStyles } from 'react-jss';
 
 export const StatusVariant = {
   link: 'link',
@@ -43,21 +43,20 @@ export interface StatusProps extends React.PropsWithChildren {
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
-const useStyles = createUseStyles({
-  icon: {
-    margin: "0",
-    alignSelf: "flex-start",
-  },
-  statusLabel: {
-    lineHeight: 'var(--pf-t--global--font--line-height--body)',
-  },
-  statusDescription: {
-    color: 'var(--pf-t--color--gray--50)',
-  }
-})
+const styles = {
+  icon: css`
+    margin: 0;
+    align-self: flex-start;
+  `,
+  statusLabel: css`
+    line-height: var(--pf-t--global--spacer--md);
+  `,
+  statusDescription: css`
+    color: var(--pf-t--color--gray--50);
+  `
+};
 
 export const Status: React.FC<StatusProps> = ({ variant = StatusVariant.plain, label, children, iconOnly, icon, status, iconTitle, ouiaId = 'Status', popoverProps, onClick, description, ...props }: StatusProps) => {
-  const classes = useStyles();
 
   if (iconOnly && !iconTitle) {
     // eslint-disable-next-line no-console
@@ -67,7 +66,7 @@ export const Status: React.FC<StatusProps> = ({ variant = StatusVariant.plain, l
   const statusBody = (
     <Flex title={label} alignItems={{ default: 'alignItemsCenter' }} {...props}>
       {icon && (
-        <FlexItem className={classes.icon}>
+        <FlexItem css={styles.icon}>
           <Icon className='pf-v6-u-mr-sm' status={status} title={iconTitle ?? status} data-ouia-component-id={`${ouiaId}-icon`}>
             {icon}
           </Icon>
@@ -75,8 +74,9 @@ export const Status: React.FC<StatusProps> = ({ variant = StatusVariant.plain, l
       )}
       {!iconOnly && (
         <FlexItem>
-          <Content ouiaId={`${ouiaId}-label`} className={classes.statusLabel} style={{ marginBlockEnd: 0 }}>{label}</Content>
-          {description && <Content component={ContentVariants.small} ouiaId={`${ouiaId}-description`} className={classes.statusDescription}>{description}</Content>}
+          <Content ouiaId={`${ouiaId}-label`} 
+            css={styles.statusLabel} style={{ marginBlockEnd: 0 }}>{label}</Content>
+          {description && <Content component={ContentVariants.small} ouiaId={`${ouiaId}-description`} css={styles.statusDescription}>{description}</Content>}
         </FlexItem>
       )}
     </Flex>

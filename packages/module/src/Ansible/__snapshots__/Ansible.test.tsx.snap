@@ -47,12 +47,12 @@ exports[`Ansible component should render RHAAP 1`] = `
 exports[`Ansible component should render supported 1`] = `
 <div>
   <i
-    class="ansible-0-2-1 ansibleSupported-0-2-2"
+    class="css-ihzjy0"
     data-ouia-component-id="Ansible-icon"
     title="Ansible supported"
   >
     <svg
-      style="enable-background: new 0 0 2032 2027.2;"
+      class="css-1qszxm8"
       version="1.1"
       viewBox="0 0 2032 2027.2"
       x="0px"
@@ -73,12 +73,12 @@ exports[`Ansible component should render supported 1`] = `
 exports[`Ansible component should render unsupported 1`] = `
 <div>
   <i
-    class="ansible-0-2-1 ansibleUnsupported-0-2-3"
+    class="css-10afr3q"
     data-ouia-component-id="Ansible-icon"
     title="Ansible is not supported"
   >
     <svg
-      style="enable-background: new 0 0 2032 2027.2;"
+      class="css-1qszxm8"
       version="1.1"
       viewBox="0 0 2032 2027.2"
       x="0px"

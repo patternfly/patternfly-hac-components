@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/react';
 import {
   Flex,
   FlexItem,
@@ -12,7 +13,6 @@ import {
   Divider,
 } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-import { createUseStyles } from 'react-jss';
 
 /** extends ButtonProps */
 export interface PageHeaderLinkProps extends ButtonProps {
@@ -43,11 +43,12 @@ export interface PageHeaderProps extends React.PropsWithChildren {
   children?: React.ReactNode;
 }
 
-const useStyles = createUseStyles({
-  iconMinWidth: {
-    minWidth: '48px',
-  }
-});
+const styles = {
+  iconMinWidth: css`
+    min-width: 48px;
+  `
+};
+
 
 export const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
@@ -60,7 +61,6 @@ export const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   ouiaId = 'PageHeader',
   children = null
 }: PageHeaderProps) => {
-  const classes = useStyles();
   const { isExternal = false, ...linkRestProps } = linkProps ?? {};
 
   return (
@@ -73,7 +73,7 @@ export const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
       <Flex>
         {icon && (
           <>
-            <FlexItem alignSelf={{ default: 'alignSelfCenter' }} className={`${classes.iconMinWidth}`}>
+            <FlexItem alignSelf={{ default: 'alignSelfCenter' }} css={styles.iconMinWidth}>
               {icon}
             </FlexItem>
             <Divider orientation={{

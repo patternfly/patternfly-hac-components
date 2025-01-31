@@ -1,15 +1,14 @@
+import { css } from '@emotion/react';
 import React from 'react';
 import { Button, ButtonProps, ButtonVariant } from '@patternfly/react-core';
 import { CloseIcon } from '@patternfly/react-icons';
-import { createUseStyles } from 'react-jss';
-import clsx from 'clsx';
 
-const useStyles = createUseStyles({
-  closeButton: {
-    float: 'inline-end',
-    padding: '10px 14px'
-  },
-});
+const styles = {
+  closeButton: css`
+    float: inline-end;
+    padding: 10px 14px;
+  `
+};
 
 /** extends ButtonProps */
 export interface CloseButtonProps extends ButtonProps {
@@ -18,24 +17,20 @@ export interface CloseButtonProps extends ButtonProps {
 };
 
 export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
-  className,
   dataTestID,
   onClick,
   ouiaId="CloseButton",
   ...props
-}: CloseButtonProps) => {
-  const classes = useStyles();
-  return (
-    <Button icon={<CloseIcon />}
-      aria-label={props['aria-label'] || 'Close'}
-      className={clsx(classes.closeButton, className)}
-      data-test-id={dataTestID}
-      onClick={onClick}
-      variant={ButtonVariant.plain}
-      ouiaId={ouiaId}
-      {...props}
-    />
-  );
-};
+}: CloseButtonProps) => (
+  <Button icon={<CloseIcon />}
+    aria-label={props['aria-label'] || 'Close'}
+    css={styles.closeButton}
+    data-test-id={dataTestID}
+    onClick={onClick}
+    variant={ButtonVariant.plain}
+    ouiaId={ouiaId}
+    {...props}
+  />
+);
 
 export default CloseButton;

@@ -10,7 +10,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
         data-ouia-component-id="ShortcutGrid"
       >
         <div
-          class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+          class="pf-v6-l-grid__item css-ezi5p7"
           data-ouia-component-id="ShortcutGrid-item-0"
         >
           <span
@@ -76,7 +76,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
           Open in a new tab
         </div>
         <div
-          class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+          class="pf-v6-l-grid__item css-ezi5p7"
           data-ouia-component-id="ShortcutGrid-item-1"
         >
           <span
@@ -124,7 +124,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
           Open new page
         </div>
         <div
-          class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+          class="pf-v6-l-grid__item css-ezi5p7"
           data-ouia-component-id="ShortcutGrid-item-2"
         >
           <span
@@ -193,7 +193,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
       data-ouia-component-id="ShortcutGrid"
     >
       <div
-        class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+        class="pf-v6-l-grid__item css-ezi5p7"
         data-ouia-component-id="ShortcutGrid-item-0"
       >
         <span
@@ -259,7 +259,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
         Open in a new tab
       </div>
       <div
-        class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+        class="pf-v6-l-grid__item css-ezi5p7"
         data-ouia-component-id="ShortcutGrid-item-1"
       >
         <span
@@ -307,7 +307,7 @@ exports[`ShortcutGrid component should render correctly 1`] = `
         Open new page
       </div>
       <div
-        class="pf-v6-l-grid__item shortcutGridItem-0-2-1"
+        class="pf-v6-l-grid__item css-ezi5p7"
         data-ouia-component-id="ShortcutGrid-item-2"
       >
         <span

@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/react';
 import {
   Flex,
   FlexItem,
@@ -12,7 +13,6 @@ import {
   Divider,
 } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
-import { createUseStyles } from 'react-jss';
 
 /** extends ButtonProps */
 export interface PageHeaderLinkProps extends ButtonProps {
@@ -41,11 +41,11 @@ export interface ContentHeaderProps {
   ouiaId?: string | number;
 }
 
-const useStyles = createUseStyles({
-  iconMinWidth: {
-    minWidth: '48px',
-  }
-});
+const styles = {
+  iconMinWidth: css`
+    min-height: 48px;
+  `
+};
 
 export const ContentHeader: React.FunctionComponent<React.PropsWithChildren<ContentHeaderProps>> = ({
   title,
@@ -57,7 +57,6 @@ export const ContentHeader: React.FunctionComponent<React.PropsWithChildren<Cont
   actionMenu,
   ouiaId = 'ContentHeader',
 }: ContentHeaderProps) => {
-  const classes = useStyles();
   const { isExternal = false, ...linkRestProps } = linkProps ?? {};
 
   return (
@@ -70,7 +69,7 @@ export const ContentHeader: React.FunctionComponent<React.PropsWithChildren<Cont
       <Flex>
         {icon && (
           <>
-            <FlexItem alignSelf={{ default: 'alignSelfCenter' }} className={`${classes.iconMinWidth}`}>
+            <FlexItem alignSelf={{ default: 'alignSelfCenter' }} css={styles.iconMinWidth} >
               {icon}
             </FlexItem>
             <Divider orientation={{

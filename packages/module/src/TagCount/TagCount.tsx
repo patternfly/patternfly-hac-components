@@ -2,24 +2,22 @@ import React from 'react';
 import clsx from 'clsx';
 import { Button, ButtonProps, Icon } from '@patternfly/react-core';
 import { TagIcon } from '@patternfly/react-icons';
-import { createUseStyles } from 'react-jss'
+import { css } from '@emotion/react';
 
-const useStyles = createUseStyles({
-  buttonTagCount: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: 'var(--pf-t--global--spacer--sm) var(--pf-t--global--spacer--md)'
-  },
-
-  tagIcon: (isDisabled: boolean) => ({
-    color: `var(--pf-t--global--icon--color--${isDisabled ? '200' : '100'})`,
-  }),
-
-  tagText: {
-    marginLeft: 'var(--pf-t--global--spacer--sm)',
-    fontSize: 'var(--pf-t--global--font--size--sm)'
-  }
-});
+const styles = {
+  buttonTagCount: css`
+    display: flex;
+    align-items: center;
+    padding: var(--pf-t--global--spacer--sm) var(--pf-t--global--spacer--md);
+  `,
+  tagIcon: (isDisabled: boolean) => css`
+    color: var(--pf-t--global--icon--color--${isDisabled ? '200' : '100'});
+  `,
+  tagText: css`
+    margin-left: var(--pf-t--global--spacer--sm);
+    font-size: var(--pf-t--global--font--size--sm);
+  `,
+};
 
 /** extends ButtonProps */
 export interface TagCountProps extends ButtonProps {
@@ -36,20 +34,19 @@ export interface TagCountProps extends ButtonProps {
 const TagCount: React.FunctionComponent<TagCountProps> = ({
   count, 
   className,
-  iconSize= 'md',
+  iconSize = 'md',
   ouiaId = 'TagCount',
   ...props 
 }: TagCountProps) => {
-  const classes = useStyles(!count);
-  const tagClasses = clsx(classes.buttonTagCount, className);
+  const tagClasses = clsx(styles.buttonTagCount, className);
   return (
     <Button 
       icon={
         <>
           <Icon iconSize={iconSize} data-ouia-component-id={`${ouiaId}-icon`}>
-            <TagIcon className={classes.tagIcon} />
+            <TagIcon css={styles.tagIcon(!count)} />
           </Icon>
-          <span className={classes.tagText} data-ouia-component-id={`${ouiaId}-text`}>{count}</span>
+          <span css={styles.tagText} data-ouia-component-id={`${ouiaId}-text`}>{count}</span>
         </>
       }
       aria-label="Tag count" 

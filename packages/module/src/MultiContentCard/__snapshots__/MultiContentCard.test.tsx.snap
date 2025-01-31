@@ -445,7 +445,7 @@ exports[`MultiContentCard component should render expandable multi-content card 
         class="pf-v6-c-card__title"
       >
         <h3
-          class="pf-v6-c-card__title-text cardTitle-0-2-1"
+          class="pf-v6-c-card__title-text css-18li09f"
           data-ouia-component-id="MultiContentCard-title"
         >
           Expandable card toggle text
@@ -514,7 +514,7 @@ exports[`MultiContentCard component should render expandable multi-content card 
         class="pf-v6-c-card__title"
       >
         <h3
-          class="pf-v6-c-card__title-text cardTitle-0-2-1"
+          class="pf-v6-c-card__title-text css-18li09f"
           data-ouia-component-id="MultiContentCard-title"
         >
           Expandable card toggle text
@@ -992,7 +992,7 @@ exports[`MultiContentCard component should render expandable multi-content card 
         class="pf-v6-c-card__title"
       >
         <h3
-          class="pf-v6-c-card__title-text cardTitle-0-2-1"
+          class="pf-v6-c-card__title-text css-18li09f"
           data-ouia-component-id="MultiContentCard-title"
         >
           Expandable card toggle text

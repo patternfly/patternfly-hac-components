@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import React from 'react';
 import {
   Card,
@@ -9,7 +10,6 @@ import {
   Flex,
   FlexItem,
 } from '@patternfly/react-core';
-import { createUseStyles } from 'react-jss';
 
 export const MultiContentCardDividerVariant = {
   left: 'left',
@@ -51,11 +51,11 @@ export const isCardWithProps = (
   card: React.ReactElement | MutliContentCardProps
 ): card is MutliContentCardProps => !!card && !React.isValidElement(card);
 
-const useStyles = createUseStyles({
-  cardTitle: {
-    fontSize: 'var(--pf-t--global--font--size--heading--h3)',
-  }
-});
+const styles = {
+  cardTitle: css`
+    font-size: var(--pf-t--global--font--size--heading--h3);
+  `
+};
 
 const MultiContentCard: React.FunctionComponent<MultiContentCardProps> = ({
   cards = [],
@@ -70,7 +70,7 @@ const MultiContentCard: React.FunctionComponent<MultiContentCardProps> = ({
   ...props
 }: MultiContentCardProps) => {
   const [ isExpanded, setIsExpanded ] = React.useState(defaultExpanded);
-  const classes = useStyles();
+  
   const onExpand = () => {
     setIsExpanded(!isExpanded);
   };
@@ -88,7 +88,7 @@ const MultiContentCard: React.FunctionComponent<MultiContentCardProps> = ({
           <FlexItem key={`card-${index}`} flex={{ default: 'flex_1' }} data-ouia-component-id={`${ouiaId}-content-${index}`}>
             {isCardWithProps(card) ? card.content : card}
           </FlexItem>
-          {(index + 1 < cards.length && (withDividers || isCardWithProps(card) && card.dividerVariant === MultiContentCardDividerVariant.right)) && (
+          {(index + 1 < cards.length && (withDividers || (isCardWithProps(card) && card.dividerVariant === MultiContentCardDividerVariant.right))) && (
             <Divider 
               orientation={{ md: 'vertical' }} 
               inset={{ default: 'inset3xl' }}
@@ -112,12 +112,12 @@ const MultiContentCard: React.FunctionComponent<MultiContentCardProps> = ({
           }}
           actions={{ actions }}
         >
-          {toggleText ? <CardTitle component="h3" className={classes.cardTitle} data-ouia-component-id={`${ouiaId}-title`}>{toggleText}</CardTitle> : toggleContent}
+          {toggleText ? <CardTitle component="h3" css={styles.cardTitle} data-ouia-component-id={`${ouiaId}-title`}>{toggleText}</CardTitle> : toggleContent}
         </CardHeader>
       )}
       {isExpandable ? <CardExpandableContent data-ouia-component-id={`${ouiaId}-expandable-content`}>{renderCards(cards, withDividers)}</CardExpandableContent> : renderCards(cards, withDividers)}
     </Card>
-  );}
-
+  );
+};
 
 export default MultiContentCard;

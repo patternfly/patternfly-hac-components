@@ -32,7 +32,7 @@ export interface MultiContentCardProps extends Omit<CardProps, 'children' | 'tit
   /** Actions to be displayed in the expandable section */
   actions?: React.ReactElement;
   /** Toggle text for the expandable section */
-  toggleText?: string;
+  toggleText?: React.ReactNode;
   /** Toggle content for the expandable section */
   toggleContent?: React.ReactElement;
   /** When set to true, all content cards will be separated with dividers */

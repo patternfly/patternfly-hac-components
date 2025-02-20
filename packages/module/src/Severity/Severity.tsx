@@ -41,7 +41,7 @@ export interface SeverityProps extends React.DetailedHTMLProps<React.HTMLAttribu
   /** Determines a variant of displayed severity */
   severity: SeverityType;
   /** Label displayed next to the severity */
-  label: string;
+  label: React.ReactNode;
   /** Option to hide the label */
   labelHidden?: boolean;
   /** Custom className */

@@ -7,9 +7,9 @@ export interface WarningModalProps extends Omit<ModalProps, 'ref'> {
   /** Callback for the confirm action button. */
   onConfirm?: () => void;
   /** Custom label for the confirm action button */
-  confirmButtonLabel?: string;
+  confirmButtonLabel?: React.ReactNode;
   /** Custom label for the cancel action button */
-  cancelButtonLabel?: string;
+  cancelButtonLabel?: React.ReactNode;
   /** Whether modal requires a checkbox before confirming */
   withCheckbox?: boolean;
   /** Custom checkbox label */

@@ -10,13 +10,13 @@ export interface ServiceCardProps extends CardProps {
   /** Service card title */
   title: string;
   /** Service card subtitle */
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   /** Service card description */
-  description: string;
+  description: React.ReactNode;
   /** Service card icon */
   icon: React.ReactNode;
   /** Optional Service card helper text*/
-  helperText?: string;
+  helperText?: React.ReactNode;
   /** Optional footer */
   footer?: React.ReactElement | null;
   /** Optional custom OUIA ID */

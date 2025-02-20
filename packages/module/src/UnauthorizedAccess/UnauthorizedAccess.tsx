@@ -5,7 +5,7 @@ import { LockIcon } from '@patternfly/react-icons';
 /** extends EmptyStateProps */
 export interface UnauthorizedAccessProps extends Omit<EmptyStateProps, 'children' | 'titleText'> {
   /** Service name displayed in the title */
-  serviceName?: string;
+  serviceName?: React.ReactNode;
   /** Icon displayed above the title */
   icon?: React.ComponentType;
   /** Custom body text */

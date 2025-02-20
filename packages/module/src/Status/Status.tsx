@@ -24,7 +24,7 @@ export interface StatusProps extends React.PropsWithChildren {
   /** Status label text */
   label?: string;
   /** Description to be displayed under the label */
-  description?: string;
+  description?: React.ReactNode;
   /** If true, only displays icon */
   iconOnly?: boolean;
   /** Variant of the status component to be displayed */

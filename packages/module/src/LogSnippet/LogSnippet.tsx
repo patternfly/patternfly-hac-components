@@ -4,7 +4,7 @@ import { Alert, AlertVariant, CodeBlock, CodeBlockCode, Flex, FlexItem, FlexProp
 /** extends FlexProps */
 export interface LogSnippetProps extends FlexProps {
   /** Log snippet or code to be displayed */
-  logSnippet?: string;
+  logSnippet?: React.ReactNode;
   /** Message to appear above the log snippet */
   message: string | React.ReactNode;
   /** Log snippet alert variant */

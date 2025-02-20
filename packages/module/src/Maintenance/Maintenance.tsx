@@ -5,21 +5,21 @@ import { HourglassHalfIcon } from '@patternfly/react-icons';
 /** extends EmptyStateProps */
 export interface MaintenanceProps extends Omit<EmptyStateProps, 'children' | 'title'> {
     /** The title for the maintenance message */
-    titleText?: string;
+    titleText?: React.ReactNode;
     /** Custom body text */
     bodyText?: React.ReactNode;
     /** A default bodyText used if no bodyText is provided */
     defaultBodyText?: React.ReactNode;
     /** Start time in a specific time zone */
-    startTime?: string;
+    startTime?: React.ReactNode;
     /** End time in a specific time zone */
-    endTime?: string;
+    endTime?: React.ReactNode;
     /** Time zone specification */
-    timeZone?: string;
+    timeZone?: React.ReactNode;
     /** Information link */
     redirectLinkUrl?: string;
     /** Information link title */
-    redirectLinkText?: string;
+    redirectLinkText?: React.ReactNode;
     /** Custom footer content */
     customFooter?: React.ReactNode;
     /** Custom OUIA ID */

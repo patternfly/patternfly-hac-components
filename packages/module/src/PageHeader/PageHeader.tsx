@@ -24,9 +24,9 @@ export interface PageHeaderLinkProps extends ButtonProps {
 
 export interface PageHeaderProps extends React.PropsWithChildren {
   /** Title for page header */
-  title: string;
+  title: React.ReactNode;
   /** Subtitle for page header */
-  subtitle: string;
+  subtitle: React.ReactNode;
   /** Optional link below subtitle */
   linkProps?: PageHeaderLinkProps;
   /** Optional icon for page header (appears to the left of the page header's title with a divider) */

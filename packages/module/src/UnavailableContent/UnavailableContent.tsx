@@ -7,11 +7,11 @@ export interface UnavailableContentProps extends Omit<EmptyStateProps, 'children
   /** The URL that the status page link points to */
   statusPageUrl?: string;
   /** The text label for the link that points to the status page */
-  statusPageLinkText?: string;
+  statusPageLinkText?: React.ReactNode;
   /** The title for the unavailable content message */
-  titleText?: string;
+  titleText?: React.ReactNode;
   /** The body text for the unavailable content message */
-  bodyText?: string;
+  bodyText?: React.ReactNode;
   /** Custom OUIA ID */
   ouiaId?: string | number;
 }

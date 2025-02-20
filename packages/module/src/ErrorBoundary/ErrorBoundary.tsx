@@ -14,11 +14,11 @@ const useStyles = createUseStyles({
 
 export interface ErrorBoundaryProps {
   /** The title text to display on the error page */
-  headerTitle?: string;
+  headerTitle?: React.ReactNode;
   /** Indicates if the error is silent */
   silent?: boolean;
   /** The title text to display with the error */
-  errorTitle?: string;
+  errorTitle?: React.ReactNode;
   /** The description text to display with the error */
   errorDescription?: React.ReactNode;
   /** The default description text to display with the error if no errorDescription is provided */

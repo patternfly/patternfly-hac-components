@@ -9,9 +9,9 @@ export interface MissingPageProps extends Omit<EmptyStateProps, 'children' | 'ti
   /** The text label for the link that points back to the home page */
   toHomePageText?: React.ReactNode;
   /** The title for the invalid object message */
-  titleText?: string;
+  titleText?: React.ReactNode;
   /** The body text for the invalid object message */
-  bodyText?: string;
+  bodyText?: React.ReactNode;
   /** Custom OUIA ID */
   ouiaId?: string | number;
 }
